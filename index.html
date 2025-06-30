@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔥 Roast App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Bangers', cursive;
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    button {
+      font-size: 2rem;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ff5f6d, #ffc371);
+      box-shadow:
+        0 4px 15px rgba(255, 95, 109, 0.4),
+        0 0 30px rgba(255, 99, 71, 0.2),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+      color: white;
+      text-shadow: 1px 1px 2px #000;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.07);
+      box-shadow:
+        0 6px 20px rgba(255, 99, 71, 0.6),
+        0 0 40px rgba(255, 140, 0, 0.4),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .roast-box {
+      margin-top: 2rem;
+      padding: 1.5rem 1.2rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
+      max-width: 90%;
+      font-size: 1.4rem;
+      text-align: center;
+      animation: flicker 2s infinite ease-in-out;
+    }
+
+    @keyframes flicker {
+      0% { box-shadow: 0 0 10px rgba(255, 69, 0, 0.3); }
+      50% { box-shadow: 0 0 25px rgba(255, 69, 0, 0.6); }
+      100% { box-shadow: 0 0 10px rgba(255, 69, 0, 0.3); }
+    }
+  </style>
+</head>
+<body>
+  <button onclick="showRoast()">Roast me 🔥</button>
+  <div id="roastBox" class="roast-box" style="display: none;"></div>
+
+  <script>
+    const roasts = [
+  "You bring everyone so much joy… when you leave the room.",
+  "You're not lazy, you’re just on energy-saving mode.",
+  "You're proof that even evolution takes breaks.",
+  "You're proof that even evolution takes breaks.",
+  "You're the reason they put directions on shampoo bottles.",
+  "You have something special… a talent for making silence awkward.",
+  "You're not lazy, you’re just on energy-saving mode.",
+  "You're like a software update. Whenever I see you, I think, ‘Not now.’",
+  "You have something special… a talent for making silence awkward.",
+  "You're the reason they put directions on shampoo bottles.",
+  "You bring everyone so much joy… when you leave the room.",
+  "You're not stupid; you just have bad luck thinking.",
+  "You're not stupid; you just have bad luck thinking.",
+  "You're proof that even evolution takes breaks.",
+  "You're not the dumbest person I’ve met, but you better hope they don’t meet.",
+  "You're not the dumbest person I’ve met, but you better hope they don’t meet.",
+  "You're like a software update. Whenever I see you, I think, ‘Not now.’",
+  "You have something special… a talent for making silence awkward.",
+  "You have something special… a talent for making silence awkward.",
+  "You're not stupid; you just have bad luck thinking.",
+  "You're like a cloud. When you disappear, it’s a beautiful day.",
+  "You're like a software update. Whenever I see you, I think, ‘Not now.’",
+  "You're like a software update. Whenever I see you, I think, ‘Not now.’",
+  "You're like a cloud. When you disappear, it’s a beautiful day.",
+  "You're proof that even evolution takes breaks.",
+  "You're like a cloud. When you disappear, it’s a beautiful day.",
+  "You're proof that even evolution takes breaks.",
+  "You're not the dumbest person I’ve met, but you better hope they don’t meet.",
+  "You're like a cloud. When you disappear, it’s a beautiful day.",
+  "You're like a software update. Whenever I see you, I think, ‘Not now.’",
+  "You have something on your chin… no, the third one down.",
+  "You have something special… a talent for making silence awkward.",
+  "You're not lazy, you’re just on energy-saving mode.",
+  "You're like a software update. Whenever I see you, I think, ‘Not now.’",
+  "You're proof that even evolution takes breaks.",
+  "You're not the dumbest person I’ve met, but you better hope they don’t meet.",
+  "You're the reason they put directions on shampoo bottles.",
+  "You have something on your chin… no, the third one down.",
+  "You're not stupid; you just have bad luck thinking.",
+  "You're the reason they put directions on shampoo bottles.",
+  "You have something on your chin… no, the third one down.",
+  "You're like a cloud. When you disappear, it’s a beautiful day.",
+  "You're not the dumbest person I’ve met, but you better hope they don’t meet.",
+  "You have something special… a talent for making silence awkward.",
+  "You're like a software update. Whenever I see you, I think, ‘Not now.’",
+  "You're not lazy, you’re just on energy-saving mode.",
+  "You have something special… a talent for making silence awkward.",
+  "You're not stupid; you just have bad luck thinking.",
+  "You have something special… a talent for making silence awkward.",
+  "You're like a cloud. When you disappear, it’s a beautiful day.",
+  "You're the reason they put directions on shampoo bottles.",
+  "You have something on your chin… no, the third one down.",
+  "You have something on your chin… no, the third one down.",
+  "You bring everyone so much joy… when you leave the room.",
+  "You're not the dumbest person I’ve met, but you better hope they don’t meet.",
+  "You bring everyone so much joy… when you leave the room.",
+  "You're the reason they put directions on shampoo bottles.",
+  "You're not the dumbest person I’ve met, but you better hope they don’t meet.",
+  "You have something on your chin… no, the third one down.",
+  "You're not stupid; you just have bad luck thinking.",
+  "You bring everyone so much joy… when you leave the room.",
+  "You bring everyone so much joy… when you leave the room.",
+  "You're the reason they put directions on shampoo bottles.",
+  "You bring everyone so much joy… when you leave the room.",
+  "You're not lazy, you’re just on energy-saving mode.",
+  "You're not lazy, you’re just on energy-saving mode.",
+  "You're like a software update. Whenever I see you, I think, ‘Not now.’",
+  "You're not stupid; you just have bad luck thinking.",
+  "You're the reason they put directions on shampoo bottles.",
+  "You're proof that even evolution takes breaks.",
+  "You have something on your chin… no, the third one down.",
+  "You have something on your chin… no, the third one down.",
+  "You're not lazy, you’re just on energy-saving mode.",
+  "You're not lazy, you’re just on energy-saving mode.",
+  "You bring everyone so much joy… when you leave the room.",
+  "You're not stupid; you just have bad luck thinking.",
+  "You're like a cloud. When you disappear, it’s a beautiful day.",
+  "You're like a cloud. When you disappear, it’s a beautiful day.",
+  "You're not the dumbest person I’ve met, but you better hope they don’t meet.",
+  "You're proof that even evolution takes breaks.",
+  "You have something no one can take away: your bad decisions.",
+  "Your face makes onions cry.",
+  "You're like a candle: you light up the room when you burn out.",
+  "Your face makes onions cry.",
+  "Your face makes onions cry.",
+  "You're the human equivalent of a typo.",
+  "You have something no one can take away: your bad decisions.",
+  "You have something on your neck. Oh wait, that's your face.",
+  "You have something on your neck. Oh wait, that's your face.",
+  "You have something on your neck. Oh wait, that's your face.",
+  "You're the human equivalent of a typo.",
+  "You have something no one can take away: your bad decisions.",
+  "If you had a dollar for every smart thing you said, you’d be broke.",
+  "You're not ugly—you just make mirrors uncomfortable.",
+  "If you had a dollar for every smart thing you said, you’d be broke.",
+  "Your secrets are safe with me. I never even listen when you talk.",
+  "You're the human equivalent of a typo.",
+  "You have something no one can take away: your bad decisions.",
+  "You're like a participation trophy—technically, you’re here.",
+  "If you had a dollar for every smart thing you said, you’d be broke.",
+  "Your secrets are safe with me. I never even listen when you talk.",
+  "You're like a participation trophy—technically, you’re here.",
+  "You have something no one can take away: your bad decisions.",
+  "You're the human equivalent of a typo.",
+  "Your secrets are safe with me. I never even listen when you talk.",
+  "You're the human equivalent of a typo.",
+  "You're as sharp as a marble.",
+  "You're like a participation trophy—technically, you’re here.",
+  "You have something on your neck. Oh wait, that's your face.",
+  "You have something on your neck. Oh wait, that's your face.",
+  "You're like a candle: you light up the room when you burn out.",
+  "You're as sharp as a marble.",
+  "Your face makes onions cry.",
+  "You're like a participation trophy—technically, you’re here.",
+  "You're as sharp as a marble.",
+  "You're not ugly—you just make mirrors uncomfortable.",
+  "If you had a dollar for every smart thing you said, you’d be broke.",
+  "You're like a candle: you light up the room when you burn out.",
+  "Your secrets are safe with me. I never even listen when you talk.",
+  "If you had a dollar for every smart thing you said, you’d be broke.",
+  "If you had a dollar for every smart thing you said, you’d be broke.",
+  "You have something on your neck. Oh wait, that's your face.",
+  "You're not ugly—you just make mirrors uncomfortable.",
+  "You're not ugly—you just make mirrors uncomfortable.",
+  "You're like a candle: you light up the room when you burn out.",
+  "You're not ugly—you just make mirrors uncomfortable.",
+  "You're as sharp as a marble.",
+  "Your face makes onions cry.",
+  "You're like a participation trophy—technically, you’re here.",
+  "Your face makes onions cry.",
+  "You're like a candle: you light up the room when you burn out.",
+  "Your secrets are safe with me. I never even listen when you talk.",
+  "You're not ugly—you just make mirrors uncomfortable.",
+  "You're like a candle: you light up the room when you burn out.",
+  "You're as sharp as a marble.",
+  "Your secrets are safe with me. I never even listen when you talk.",
+  "You have something no one can take away: your bad decisions.",
+  "You're as sharp as a marble.",
+  "You're the human equivalent of a typo.",
+  "You're like a participation trophy—technically, you’re here.",
+  "If I wanted to hear from someone irrelevant, I’d talk to your career.",
+  "You're the human version of a bad tattoo.",
+  "You're the reason God doesn’t talk to us anymore.",
+  "You're the human version of a bad tattoo.",
+  "You're not a complete waste of space—some of your organs might be usable.",
+  "You're what happens when a joke becomes a person.",
+  "You're the reason God doesn’t talk to us anymore.",
+  "You're living proof that even natural selection has loopholes.",
+  "You're living proof that even natural selection has loopholes.",
+  "You have something no one wants: your personality.",
+  "You're the reason God doesn’t talk to us anymore.",
+  "Your family tree must be a cactus, because everyone on it is a prick.",
+  "If I wanted to hear from someone irrelevant, I’d talk to your career.",
+  "You're what happens when a joke becomes a person.",
+  "You're like Monday morning, nobody likes you and you always come too soon.",
+  "You're living proof that even natural selection has loopholes.",
+  "You're the reason God doesn’t talk to us anymore.",
+  "You're not a complete waste of space—some of your organs might be usable.",
+  "You have something no one wants: your personality.",
+  "You're the reason why karma invented interest rates.",
+  "You're the human version of a bad tattoo.",
+  "You're what happens when a joke becomes a person.",
+  "You have something no one wants: your personality.",
+  "Your family tree must be a cactus, because everyone on it is a prick.",
+  "You're like Monday morning, nobody likes you and you always come too soon.",
+  "You're like Monday morning, nobody likes you and you always come too soon.",
+  "Your family tree must be a cactus, because everyone on it is a prick.",
+  "You're the reason why karma invented interest rates.",
+  "Your family tree must be a cactus, because everyone on it is a prick.",
+  "You're the reason God doesn’t talk to us anymore.",
+  "You have something no one wants: your personality.",
+  "You're the human version of a bad tattoo.",
+  "You're like Monday morning, nobody likes you and you always come too soon.",
+  "You're the reason God doesn’t talk to us anymore.",
+  "You're living proof that even natural selection has loopholes.",
+  "You're living proof that even natural selection has loopholes.",
+  "If I wanted to hear from someone irrelevant, I’d talk to your career.",
+  "You're what happens when a joke becomes a person.",
+  "You have something no one wants: your personality.",
+  "You're the reason why karma invented interest rates.",
+  "You're like Monday morning, nobody likes you and you always come too soon.",
+  "You're not a complete waste of space—some of your organs might be usable.",
+  "If I wanted to hear from someone irrelevant, I’d talk to your career.",
+  "You're the human version of a bad tattoo.",
+  "You have something no one wants: your personality.",
+  "You're the reason why karma invented interest rates.",
+  "You're not a complete waste of space—some of your organs might be usable.",
+  "If I wanted to hear from someone irrelevant, I’d talk to your career.",
+  "You're what happens when a joke becomes a person.",
+  "You're like Monday morning, nobody likes you and you always come too soon.",
+  "You're the reason why karma invented interest rates.",
+  "You're what happens when a joke becomes a person.",
+  "Your family tree must be a cactus, because everyone on it is a prick.",
+  "You're the reason why karma invented interest rates.",
+  "You're the human version of a bad tattoo.",
+  "Your family tree must be a cactus, because everyone on it is a prick.",
+  "You're not a complete waste of space—some of your organs might be usable.",
+  "If I wanted to hear from someone irrelevant, I’d talk to your career.",
+  "You're not a complete waste of space—some of your organs might be usable.",
+  "You're living proof that even natural selection has loopholes."
+];
+
+    function showRoast() {
+      const randomRoast = roasts[Math.floor(Math.random() * roasts.length)];
+      const box = document.getElementById("roastBox");
+      box.style.display = 'block';
+      box.textContent = randomRoast;
+    }
+  </script>
+</body>
+</html>
