@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔥 Roast App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Bangers', cursive;
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(90deg, #ff0000, #ff9900);
+      padding: 0.5rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(to right, #ff6a00, #ff0000);
+      color: white;
+      box-shadow: 0 0 10px #ff4500;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff6347;
+    }
+
+    .roast-box {
+      margin: 2rem 1rem;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #ff4500;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.7);
+      max-width: 90%;
+      font-size: 1.3rem;
+      text-align: center;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0% { box-shadow: 0 0 15px #ff4500; }
+      50% { box-shadow: 0 0 25px #ff6347; }
+      100% { box-shadow: 0 0 15px #ff4500; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Roast Me!</h1>
+  <button onclick="showRoast()">Roast me!</button>
+  <div id="roastBox" class="roast-box">Press the button to get roasted!</div>
+
+  <script>
+    const roasts = [
+  "Roast #1: This is a placeholder roast line number 1.",
+  "Roast #2: This is a placeholder roast line number 2.",
+  "Roast #3: This is a placeholder roast line number 3.",
+  "Roast #4: This is a placeholder roast line number 4.",
+  "Roast #5: This is a placeholder roast line number 5.",
+  "Roast #6: This is a placeholder roast line number 6.",
+  "Roast #7: This is a placeholder roast line number 7.",
+  "Roast #8: This is a placeholder roast line number 8.",
+  "Roast #9: This is a placeholder roast line number 9.",
+  "Roast #10: This is a placeholder roast line number 10.",
+  "Roast #11: This is a placeholder roast line number 11.",
+  "Roast #12: This is a placeholder roast line number 12.",
+  "Roast #13: This is a placeholder roast line number 13.",
+  "Roast #14: This is a placeholder roast line number 14.",
+  "Roast #15: This is a placeholder roast line number 15.",
+  "Roast #16: This is a placeholder roast line number 16.",
+  "Roast #17: This is a placeholder roast line number 17.",
+  "Roast #18: This is a placeholder roast line number 18.",
+  "Roast #19: This is a placeholder roast line number 19.",
+  "Roast #20: This is a placeholder roast line number 20.",
+  "Roast #21: This is a placeholder roast line number 21.",
+  "Roast #22: This is a placeholder roast line number 22.",
+  "Roast #23: This is a placeholder roast line number 23.",
+  "Roast #24: This is a placeholder roast line number 24.",
+  "Roast #25: This is a placeholder roast line number 25.",
+  "Roast #26: This is a placeholder roast line number 26.",
+  "Roast #27: This is a placeholder roast line number 27.",
+  "Roast #28: This is a placeholder roast line number 28.",
+  "Roast #29: This is a placeholder roast line number 29.",
+  "Roast #30: This is a placeholder roast line number 30.",
+  "Roast #31: This is a placeholder roast line number 31.",
+  "Roast #32: This is a placeholder roast line number 32.",
+  "Roast #33: This is a placeholder roast line number 33.",
+  "Roast #34: This is a placeholder roast line number 34.",
+  "Roast #35: This is a placeholder roast line number 35.",
+  "Roast #36: This is a placeholder roast line number 36.",
+  "Roast #37: This is a placeholder roast line number 37.",
+  "Roast #38: This is a placeholder roast line number 38.",
+  "Roast #39: This is a placeholder roast line number 39.",
+  "Roast #40: This is a placeholder roast line number 40.",
+  "Roast #41: This is a placeholder roast line number 41.",
+  "Roast #42: This is a placeholder roast line number 42.",
+  "Roast #43: This is a placeholder roast line number 43.",
+  "Roast #44: This is a placeholder roast line number 44.",
+  "Roast #45: This is a placeholder roast line number 45.",
+  "Roast #46: This is a placeholder roast line number 46.",
+  "Roast #47: This is a placeholder roast line number 47.",
+  "Roast #48: This is a placeholder roast line number 48.",
+  "Roast #49: This is a placeholder roast line number 49.",
+  "Roast #50: This is a placeholder roast line number 50.",
+  "Roast #51: This is a placeholder roast line number 51.",
+  "Roast #52: This is a placeholder roast line number 52.",
+  "Roast #53: This is a placeholder roast line number 53.",
+  "Roast #54: This is a placeholder roast line number 54.",
+  "Roast #55: This is a placeholder roast line number 55.",
+  "Roast #56: This is a placeholder roast line number 56.",
+  "Roast #57: This is a placeholder roast line number 57.",
+  "Roast #58: This is a placeholder roast line number 58.",
+  "Roast #59: This is a placeholder roast line number 59.",
+  "Roast #60: This is a placeholder roast line number 60.",
+  "Roast #61: This is a placeholder roast line number 61.",
+  "Roast #62: This is a placeholder roast line number 62.",
+  "Roast #63: This is a placeholder roast line number 63.",
+  "Roast #64: This is a placeholder roast line number 64.",
+  "Roast #65: This is a placeholder roast line number 65.",
+  "Roast #66: This is a placeholder roast line number 66.",
+  "Roast #67: This is a placeholder roast line number 67.",
+  "Roast #68: This is a placeholder roast line number 68.",
+  "Roast #69: This is a placeholder roast line number 69.",
+  "Roast #70: This is a placeholder roast line number 70.",
+  "Roast #71: This is a placeholder roast line number 71.",
+  "Roast #72: This is a placeholder roast line number 72.",
+  "Roast #73: This is a placeholder roast line number 73.",
+  "Roast #74: This is a placeholder roast line number 74.",
+  "Roast #75: This is a placeholder roast line number 75.",
+  "Roast #76: This is a placeholder roast line number 76.",
+  "Roast #77: This is a placeholder roast line number 77.",
+  "Roast #78: This is a placeholder roast line number 78.",
+  "Roast #79: This is a placeholder roast line number 79.",
+  "Roast #80: This is a placeholder roast line number 80.",
+  "Roast #81: This is a placeholder roast line number 81.",
+  "Roast #82: This is a placeholder roast line number 82.",
+  "Roast #83: This is a placeholder roast line number 83.",
+  "Roast #84: This is a placeholder roast line number 84.",
+  "Roast #85: This is a placeholder roast line number 85.",
+  "Roast #86: This is a placeholder roast line number 86.",
+  "Roast #87: This is a placeholder roast line number 87.",
+  "Roast #88: This is a placeholder roast line number 88.",
+  "Roast #89: This is a placeholder roast line number 89.",
+  "Roast #90: This is a placeholder roast line number 90.",
+  "Roast #91: This is a placeholder roast line number 91.",
+  "Roast #92: This is a placeholder roast line number 92.",
+  "Roast #93: This is a placeholder roast line number 93.",
+  "Roast #94: This is a placeholder roast line number 94.",
+  "Roast #95: This is a placeholder roast line number 95.",
+  "Roast #96: This is a placeholder roast line number 96.",
+  "Roast #97: This is a placeholder roast line number 97.",
+  "Roast #98: This is a placeholder roast line number 98.",
+  "Roast #99: This is a placeholder roast line number 99.",
+  "Roast #100: This is a placeholder roast line number 100.",
+  "Roast #101: This is a placeholder roast line number 101.",
+  "Roast #102: This is a placeholder roast line number 102.",
+  "Roast #103: This is a placeholder roast line number 103.",
+  "Roast #104: This is a placeholder roast line number 104.",
+  "Roast #105: This is a placeholder roast line number 105.",
+  "Roast #106: This is a placeholder roast line number 106.",
+  "Roast #107: This is a placeholder roast line number 107.",
+  "Roast #108: This is a placeholder roast line number 108.",
+  "Roast #109: This is a placeholder roast line number 109.",
+  "Roast #110: This is a placeholder roast line number 110.",
+  "Roast #111: This is a placeholder roast line number 111.",
+  "Roast #112: This is a placeholder roast line number 112.",
+  "Roast #113: This is a placeholder roast line number 113.",
+  "Roast #114: This is a placeholder roast line number 114.",
+  "Roast #115: This is a placeholder roast line number 115.",
+  "Roast #116: This is a placeholder roast line number 116.",
+  "Roast #117: This is a placeholder roast line number 117.",
+  "Roast #118: This is a placeholder roast line number 118.",
+  "Roast #119: This is a placeholder roast line number 119.",
+  "Roast #120: This is a placeholder roast line number 120.",
+  "Roast #121: This is a placeholder roast line number 121.",
+  "Roast #122: This is a placeholder roast line number 122.",
+  "Roast #123: This is a placeholder roast line number 123.",
+  "Roast #124: This is a placeholder roast line number 124.",
+  "Roast #125: This is a placeholder roast line number 125.",
+  "Roast #126: This is a placeholder roast line number 126.",
+  "Roast #127: This is a placeholder roast line number 127.",
+  "Roast #128: This is a placeholder roast line number 128.",
+  "Roast #129: This is a placeholder roast line number 129.",
+  "Roast #130: This is a placeholder roast line number 130.",
+  "Roast #131: This is a placeholder roast line number 131.",
+  "Roast #132: This is a placeholder roast line number 132.",
+  "Roast #133: This is a placeholder roast line number 133.",
+  "Roast #134: This is a placeholder roast line number 134.",
+  "Roast #135: This is a placeholder roast line number 135.",
+  "Roast #136: This is a placeholder roast line number 136.",
+  "Roast #137: This is a placeholder roast line number 137.",
+  "Roast #138: This is a placeholder roast line number 138.",
+  "Roast #139: This is a placeholder roast line number 139.",
+  "Roast #140: This is a placeholder roast line number 140.",
+  "Roast #141: This is a placeholder roast line number 141.",
+  "Roast #142: This is a placeholder roast line number 142.",
+  "Roast #143: This is a placeholder roast line number 143.",
+  "Roast #144: This is a placeholder roast line number 144.",
+  "Roast #145: This is a placeholder roast line number 145.",
+  "Roast #146: This is a placeholder roast line number 146.",
+  "Roast #147: This is a placeholder roast line number 147.",
+  "Roast #148: This is a placeholder roast line number 148.",
+  "Roast #149: This is a placeholder roast line number 149.",
+  "Roast #150: This is a placeholder roast line number 150.",
+  "Roast #151: This is a placeholder roast line number 151.",
+  "Roast #152: This is a placeholder roast line number 152.",
+  "Roast #153: This is a placeholder roast line number 153.",
+  "Roast #154: This is a placeholder roast line number 154.",
+  "Roast #155: This is a placeholder roast line number 155.",
+  "Roast #156: This is a placeholder roast line number 156.",
+  "Roast #157: This is a placeholder roast line number 157.",
+  "Roast #158: This is a placeholder roast line number 158.",
+  "Roast #159: This is a placeholder roast line number 159.",
+  "Roast #160: This is a placeholder roast line number 160.",
+  "Roast #161: This is a placeholder roast line number 161.",
+  "Roast #162: This is a placeholder roast line number 162.",
+  "Roast #163: This is a placeholder roast line number 163.",
+  "Roast #164: This is a placeholder roast line number 164.",
+  "Roast #165: This is a placeholder roast line number 165.",
+  "Roast #166: This is a placeholder roast line number 166.",
+  "Roast #167: This is a placeholder roast line number 167.",
+  "Roast #168: This is a placeholder roast line number 168.",
+  "Roast #169: This is a placeholder roast line number 169.",
+  "Roast #170: This is a placeholder roast line number 170.",
+  "Roast #171: This is a placeholder roast line number 171.",
+  "Roast #172: This is a placeholder roast line number 172.",
+  "Roast #173: This is a placeholder roast line number 173.",
+  "Roast #174: This is a placeholder roast line number 174.",
+  "Roast #175: This is a placeholder roast line number 175.",
+  "Roast #176: This is a placeholder roast line number 176.",
+  "Roast #177: This is a placeholder roast line number 177.",
+  "Roast #178: This is a placeholder roast line number 178.",
+  "Roast #179: This is a placeholder roast line number 179.",
+  "Roast #180: This is a placeholder roast line number 180.",
+  "Roast #181: This is a placeholder roast line number 181.",
+  "Roast #182: This is a placeholder roast line number 182.",
+  "Roast #183: This is a placeholder roast line number 183.",
+  "Roast #184: This is a placeholder roast line number 184.",
+  "Roast #185: This is a placeholder roast line number 185.",
+  "Roast #186: This is a placeholder roast line number 186.",
+  "Roast #187: This is a placeholder roast line number 187.",
+  "Roast #188: This is a placeholder roast line number 188.",
+  "Roast #189: This is a placeholder roast line number 189.",
+  "Roast #190: This is a placeholder roast line number 190.",
+  "Roast #191: This is a placeholder roast line number 191.",
+  "Roast #192: This is a placeholder roast line number 192.",
+  "Roast #193: This is a placeholder roast line number 193.",
+  "Roast #194: This is a placeholder roast line number 194.",
+  "Roast #195: This is a placeholder roast line number 195.",
+  "Roast #196: This is a placeholder roast line number 196.",
+  "Roast #197: This is a placeholder roast line number 197.",
+  "Roast #198: This is a placeholder roast line number 198.",
+  "Roast #199: This is a placeholder roast line number 199.",
+  "Roast #200: This is a placeholder roast line number 200."
+];
+
+    function showRoast() {
+      const randomRoast = roasts[Math.floor(Math.random() * roasts.length)];
+      document.getElementById("roastBox").textContent = randomRoast;
+    }
+  </script>
+</body>
+</html>
